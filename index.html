@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cluster - SaaS Grupo Cluster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="25" r="15" fill="#6B9FD4"/>
+      <circle cx="75" cy="25" r="15" fill="#6B9FD4"/>
+      <circle cx="50" cy="50" r="15" fill="#6B9FD4"/>
+      <circle cx="25" cy="75" r="15" fill="#6B9FD4"/>
+      <circle cx="75" cy="75" r="15" fill="#6B9FD4"/>
+    </svg>
+    <span class="logo-text">Grupo Cluster</span>
+  </div>
+  <div class="nav-center">
+    <span class="nav-product">Cluster</span>
+  </div>
+  <div class="nav-links">
+    <button class="nav-link" onclick="showSection('dashboard')">Dashboard</button>
+    <button class="nav-link" onclick="showSection('cursos')">Cursos</button>
+    <button class="nav-link" onclick="showSection('lecciones')">Lecciones</button>
+    <button class="nav-link" onclick="showSection('reportes')">Reportes</button>
+  </div>
+</nav>
+
+<!-- SIDEBAR IZQUIERDO -->
+<div class="sidebar-left"></div>
+
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="container">
+  <section id="dashboard" class="section active">
+    <div class="welcome-header">
+      <h1>Bienvenido a Cluster</h1>
+      <p>Plataforma potenciada por Grupo Cluster</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Cursos Activos</div>
+        <div class="stat-icon">📑</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">40%</div>
+        <div class="stat-label">Progreso Promedio</div>
+        <div class="stat-icon">📉</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24</div>
+        <div class="stat-label">Horas Invertidas</div>
+        <div class="stat-icon">⌚</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cursos" class="section">
+    <div class="section-header">
+      <h2>Mis Cursos</h2>
+      <button class="btn-primary" onclick="openModal()">+ Nuevo Curso</button>
+    </div>
+    <table class="courses-table">
+      <thead>
+        <tr>
+          <th>Nombre del Curso</th>
+          <th>Progreso</th>
+          <th>Duracion</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Transformacion Digital</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div></td>
+          <td>20 horas</td>
+          <td><span class="badge-active">En Progreso</span></td>
+        </tr>
+        <tr>
+          <td>Liderazgo y Gestion</td>
+          <td><div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div></td>
+          <td>15 horas</td>
+          <td><span class="badge-active">En Progreso</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="lecciones" class="section">
+    <div class="section-header">
+      <h2>Mis Lecciones</h2>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson-card">
+        <div class="lesson-number">01</div>
+        <h3>Introduccion a la Transformacion Digital</h3>
+        <button class="btn-lesson">Comenzar</button>
+      </div>
+      <div class="lesson-card">
+        <div class="lesson-number">02</div>
+        <h3>Herramientas y Tecnologias</h3>
+        <button class="btn-lesson">Continuar</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="reportes" class="section">
+    <div class="section-header">
+      <h2>Reportes y Analisis</h2>
+    </div>
+    <div class="reports-grid">
+      <div class="report-card">
+        <h3>Progreso General</h3>
+        <div class="report-metric">
+          <span class="metric-label">Completacion:</span>
+          <span class="metric-value">45%</span>
+        </div>
+      </div>
+      <div class="report-card">
+        <h3>Participacion</h3>
+        <div class="report-metric">
+          <span class="metric-label">Activa:</span>
+          <span class="metric-value">12 participantes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SIDEBAR DERECHO (DETALLES) -->
+<div class="sidebar-right">
+  <h3>Detalles del Curso</h3>
+  <div class="course-details">
+    <p><strong>Transformacion Digital</strong></p>
+    <p>Progreso: 75%</p>
+    <p>Instructor: Grupo Cluster</p>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay" class="modal-overlay" onclick="closeModal()"></div>
+<div id="modal" class="modal" onclick="event.stopPropagation()">
+  <div class="modal-header">
+    <h2>Nuevo Curso</h2>
+    <button class="modal-close" onclick="closeModal()">×</button>
+  </div>
+  <div class="modal-body">
+    <input type="text" placeholder="Nombre del curso" class="modal-input"/>
+    <input type="text" placeholder="Descripcion" class="modal-input"/>
+  </div>
+  <div class="modal-footer">
+    <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+    <button class="btn-save" onclick="saveCourse()">Guardar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
