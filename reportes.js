@@ -197,3 +197,109 @@ document.addEventListener("DOMContentLoaded", () => {
     refrescarReportes();
   }
 });
+
+
+// Exportar a Excel
+function exportarExcel() {
+  const datos = filtrarDatos();
+  
+  // Headers de la tabla
+  const headers = ['Alumno', 'Email', 'Curso', 'Estado', 'Intentos', 'Calificación', 'Tiempo (min)', 'Último Acceso'];
+  
+  // Convertir datos a array para exportar
+  const datosExportar = datos.map(d => [
+    d.user_name,
+    d.user_email,
+    d.course_title,
+    d.status_completion,
+    d.attempts,
+    d.score || '-',
+    d.total_time_minutes,
+    d.last_access
+  ]);
+  
+  // Agregar headers al inicio
+  const tablaCompleta = [headers, ...datosExportar];
+  
+  // Crear CSV
+  let csv = '';
+  tablaCompleta.forEach(row => {
+    csv += row.map(cell => `"${cell}"`).join(',') + '\n';
+  });
+  
+  // Crear Blob y descargar
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+  
+  const fecha = new Date().toISOString().split('T')[0];
+  link.setAttribute('href', url);
+  link.setAttribute('download', `reportes-cluster-${fecha}.csv`);
+  link.style.visibility = 'hidden';
+  
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  
+  // Mostrar notificación
+  alert(`✓ Reporte exportado como: reportes-cluster-${fecha}.csv`);
+}
+
+// Función para exportar con Sheet.js (formato Excel real)
+function exportarExcelSheets() {
+  const datos = filtrarDatos();
+  
+  // Si no hay SheetJS, usar CSV
+  if (typeof XLSX === 'undefined') {
+    console.log('Usando exportación CSV');
+    return exportarExcel();
+  }
+  
+  // Preparar datos
+  const headers = ['Alumno', 'Email', 'Curso', 'Estado', 'Intentos', 'Calificación', 'Tiempo (min)', 'Último Acceso'];
+  const datosExportar = datos.map(d => ({
+    'Alumno': d.user_name,
+    'Email': d.user_email,
+    'Curso': d.course_title,
+    'Estado': d.status_completion,
+    'Intentos': d.attempts,
+    'Calificación': d.score || '-',
+    'Tiempo (min)': d.total_time_minutes,
+    'Último Acceso': d.last_access
+  }));
+  
+  // Crear workbook
+  const ws = XLSX.utils.json_to_sheet(datosExportar);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Reportes');
+  
+  // Ajustar ancho de columnas
+  const maxWidth = 20;
+  ws['!cols'] = [
+    { wch: maxWidth },
+    { wch: maxWidth },
+    { wch: maxWidth },
+    { wch: 15 },
+    { wch: 10 },
+    { wch: 12 },
+    { wch: 15 },
+    { wch: 20 }
+  ];
+  
+  // Descargar
+  const fecha = new Date().toISOString().split('T')[0];
+  XLSX.writeFile(wb, `reportes-cluster-${fecha}.xlsx`);
+  
+  alert(`✓ Reporte exportado como: reportes-cluster-${fecha}.xlsx`);
+}
+
+// Agregar evento al botón de exportación
+document.addEventListener('DOMContentLoaded', () => {
+  const btnExportar = document.getElementById('btn-exportar-excel');
+  if (btnExportar) {
+    btnExportar.addEventListener('click', () => {
+      // Intenta usar Excel real, si no, usa CSV
+      exportarExcelSheets();
+    });
+  }
+});
