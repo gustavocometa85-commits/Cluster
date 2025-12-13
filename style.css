@@ -66,3 +66,92 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 .stat-card:nth-child(1) .stat-icon::before { content: '📑'; font-size: 40px; }
 .stat-card:nth-child(2) .stat-icon::before { content: '📉'; font-size: 40px; }
 .stat-card:nth-child(3) .stat-icon::before { content: '⌚'; font-size: 40px; }
+
+
+/* REPORTES SECTION */
+.report-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.report-filters label {
+  font-size: 0.9rem;
+}
+
+.report-filters select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.kpi-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.kpi-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.kpi-value {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.chart-card, .table-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.chart-card h3, .table-card h3 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+#tabla-reportes {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+#tabla-reportes thead {
+  background: #f4f4f4;
+}
+
+#tabla-reportes th,
+#tabla-reportes td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+#tabla-reportes tbody tr:hover {
+  background: #fafafa;
+}
