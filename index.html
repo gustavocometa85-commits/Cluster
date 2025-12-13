@@ -159,5 +159,44 @@
 </div>
 
 <script src="script.js"></script>
+    
+<!-- SCORM SECTION -->
+<div id="scorm-section" class="section" style="display: none;">
+  <div class="section-header">
+    <h2>Carga de Cursos SCORM</h2>
+    <p>Carga y visualiza cursos en formato SCORM 1.2 y SCORM 2004</p>
+  </div>
+  
+  <div class="scorm-container">
+    <div class="scorm-upload" id="scorm-upload-zone">
+      <input type="file" id="scorm-file-input" accept=".zip" style="display: none;" />
+      <div class="upload-box" onclick="document.getElementById('scorm-file-input').click()">
+        <div style="font-size: 48px; margin-bottom: 20px;">Package</div>
+        <h3>Carga un archivo SCORM (.zip)</h3>
+        <p>o haz clic para seleccionar</p>
+      </div>
+      <div id="upload-progress" style="display: none;">
+        <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+        <p id="progress-text">Procesando...</p>
+      </div>
+    </div>
+    
+    <div class="scorm-viewer" id="scorm-viewer" style="display: none;">
+      <div class="viewer-header">
+        <h3 id="scorm-title">Curso SCORM</h3>
+        <button class="btn-close" onclick="closeSCORMViewer()">X</button>
+      </div>
+      <div class="viewer-content" id="scorm-content-frame"></div>
+      <div class="viewer-footer">
+        <span id="scorm-progress-info">Progreso: 0%</span>
+      </div>
+    </div>
+    
+    <div class="scorm-list">
+      <h3>Cursos Cargados</h3>
+      <div id="scorm-courses-list" class="courses-list"></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
