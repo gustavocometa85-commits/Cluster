@@ -27,6 +27,7 @@
     <button class="nav-link" onclick="showSection('dashboard')">Dashboard</button>
     <button class="nav-link" onclick="showSection('cursos')">Cursos</button>
     <button class="nav-link" onclick="showSection('lecciones')">Lecciones</button>
+    <button class="nav-link" onclick="showSection('administrador')" style="color: #FF6B6B; font-weight: bold;">⚙️ Administrador</button>
     <button class="nav-link" onclick="showSection('reportes')">Reportes</button>
     <button class="nav-link" onclick="showSection('scorm')">SCORM</button>
   </div>
@@ -266,5 +267,120 @@
 <script src="script.js"></script>
 <script src="scorm-manager.js"></script>
 <script src="reportes.js"></script>
+
+  <!-- ADMINISTRADOR SECTION -->
+<section id="administrador" class="section">
+  <h2 style="color: #FF6B6B; margin-bottom: 30px;">⚙️ Panel de Administrador</h2>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+    <!-- Estadísticas Administrador -->
+    <div class="stat-card">
+      <div class="stat-number" style="color: #FF6B6B;">45</div>
+      <div class="stat-label">Usuarios Registrados</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color: #FF6B6B;">8</div>
+      <div class="stat-label">Cursos Disponibles</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color: #FF6B6B;">156</div>
+      <div class="stat-label">Horas Completadas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color: #FF6B6B;">92%</div>
+      <div class="stat-label">Tasa de Cumplimiento</div>
+    </div>
+  </div>
+
+  <!-- Pestañas Admin -->
+  <div style="border-bottom: 2px solid #eee; margin-bottom: 20px;">
+    <button style="padding: 12px 20px; border: none; background: none; cursor: pointer; border-bottom: 3px solid #FF6B6B; color: #FF6B6B; font-weight: bold;" onclick="showAdminTab('usuarios')">👥 Gestión de Usuarios</button>
+    <button style="padding: 12px 20px; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; color: #666; font-weight: bold;" onclick="showAdminTab('cursos')">📚 Gestión de Cursos</button>
+    <button style="padding: 12px 20px; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; color: #666; font-weight: bold;" onclick="showAdminTab('reportes-admin')">📊 Reportes Avanzados</button>
+  </div>
+
+  <!-- Tab Usuarios -->
+  <div id="admin-usuarios" style="display: block;">
+    <h3>Gestión de Usuarios</h3>
+    <table class="courses-table" style="width: 100%;">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Juan Pérez</td>
+          <td>juan@example.com</td>
+          <td><span style="background: #3b82f6; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Alumno</span></td>
+          <td><span style="color: #10b981;">Activo</span></td>
+          <td><button style="padding: 4px 8px; background: #FF6B6B; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Editar</button></td>
+        </tr>
+        <tr>
+          <td>María García</td>
+          <td>maria@example.com</td>
+          <td><span style="background: #10b981; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Instructor</span></td>
+          <td><span style="color: #10b981;">Activo</span></td>
+          <td><button style="padding: 4px 8px; background: #FF6B6B; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Editar</button></td>
+        </tr>
+        <tr>
+          <td>Carlos López</td>
+          <td>carlos@example.com</td>
+          <td><span style="background: #f59e0b; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Administrador</span></td>
+          <td><span style="color: #10b981;">Activo</span></td>
+          <td><button style="padding: 4px 8px; background: #FF6B6B; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Editar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tab Cursos -->
+  <div id="admin-cursos" style="display: none;">
+    <h3>Gestión de Cursos</h3>
+    <table class="courses-table" style="width: 100%;">
+      <thead>
+        <tr>
+          <th>Curso</th>
+          <th>Alumnos Inscritos</th>
+          <th>Duración</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Transformación Digital</td>
+          <td>32</td>
+          <td>20 horas</td>
+          <td><span style="color: #10b981;">Activo</span></td>
+          <td><button style="padding: 4px 8px; background: #FF6B6B; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Editar</button></td>
+        </tr>
+        <tr>
+          <td>Liderazgo y Gestión</td>
+          <td>28</td>
+          <td>15 horas</td>
+          <td><span style="color: #10b981;">Activo</span></td>
+          <td><button style="padding: 4px 8px; background: #FF6B6B; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Editar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tab Reportes Avanzados -->
+  <div id="admin-reportes-admin" style="display: none;">
+    <h3>Reportes Avanzados</h3>
+    <p>Acceso a reportes detallados de toda la plataforma:</p>
+    <ul style="list-style: none; padding: 0;">
+      <li style="padding: 12px; background: #f9fafb; margin-bottom: 10px; border-radius: 4px;">📈 Analítica de participación por curso</li>
+      <li style="padding: 12px; background: #f9fafb; margin-bottom: 10px; border-radius: 4px;">👥 Reportes de desempeño por usuario</li>
+      <li style="padding: 12px; background: #f9fafb; margin-bottom: 10px; border-radius: 4px;">⏱️ Seguimiento de tiempo de capacitación</li>
+      <li style="padding: 12px; background: #f9fafb; margin-bottom: 10px; border-radius: 4px;">📊 Estadísticas de completación por cohorte</li>
+    </ul>
+  </div>
+</section>
 </body>
 </html>
