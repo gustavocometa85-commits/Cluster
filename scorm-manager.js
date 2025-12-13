@@ -17,8 +17,8 @@ class SCORMManager {
     const file = event.target.files[0];
     if (!file) return;
 
-    if (!file.name.endsWith('.zip')) {
-      alert('Por favor carga un archivo SCORM (.zip)');
+    if (!file.name.endsWith('.zip|html|htm')) {
+      alert('Por favor carga un archivo SCORM (.zip), HTML (.html, .htm) o compatible');
       return;
     }
 
