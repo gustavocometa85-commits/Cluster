@@ -114,3 +114,18 @@ forms.forEach(form => {
     console.log('Form submitted:', form);
   });
 });
+
+// Show/Hide sections
+function showSection(sectionName) {
+  const sections = document.querySelectorAll('[id$="-section"]');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+  const targetSection = document.getElementById(sectionName + '-section');
+  if (targetSection) {
+    targetSection.style.display = 'block';
+  }
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => item.classList.remove('active'));
+  event.target.classList.add('active');
+}
