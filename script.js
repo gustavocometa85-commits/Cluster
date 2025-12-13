@@ -117,15 +117,22 @@ forms.forEach(form => {
 
 // Show/Hide sections
 function showSection(sectionName) {
-  const sections = document.querySelectorAll('[id$="-section"]');
+  const sections = document.querySelectorAll('.section');
   sections.forEach(section => {
+    section.classList.remove('active');
     section.style.display = 'none';
   });
-  const targetSection = document.getElementById(sectionName + '-section');
+  const targetSection = document.getElementById(sectionName);
   if (targetSection) {
+    targetSection.classList.add('active');
     targetSection.style.display = 'block';
   }
-  const navItems = document.querySelectorAll('.nav-item');
-  navItems.forEach(item => item.classList.remove('active'));
-  event.target.classList.add('active');
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    if (link.textContent.toLowerCase() === sectionName) {
+      link.style.borderBottomColor = '#FFD700';
+    } else {
+      link.style.borderBottomColor = 'transparent';
+    }
+  });
 }
