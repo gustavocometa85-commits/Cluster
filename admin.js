@@ -1,27 +1,29 @@
 // Función para mostrar pestañas del administrador
-function showAdminTab(tabName) {
+function showAdminTab(tabName, buttonElement) {
   // Ocultar todos los tabs
   const tabs = document.querySelectorAll('[id^="admin-"]');
   tabs.forEach(tab => {
     tab.style.display = 'none';
   });
-
+  
   // Mostrar tab seleccionado
   const selectedTab = document.getElementById('admin-' + tabName);
   if (selectedTab) {
     selectedTab.style.display = 'block';
   }
-
+  
   // Actualizar estilos de botones
-  const buttons = document.querySelectorAll('[onclick^="showAdminTab"]');
+  const buttons = document.querySelectorAll('[onclick*="showAdminTab"]');
   buttons.forEach(btn => {
     btn.style.color = '#666';
     btn.style.borderBottom = '3px solid transparent';
   });
-
+  
   // Destacar botón seleccionado
-  event.target.style.color = '#FF6B6B';
-  event.target.style.borderBottom = '3px solid #FF6B6B';
+  if (buttonElement) {
+    buttonElement.style.color = '#FF6B6B';
+    buttonElement.style.borderBottom = '3px solid #FF6B6B';
+  }
 }
 
 // Funciones de ejemplo para gestión de usuarios
