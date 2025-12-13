@@ -1,10 +1,11 @@
-scorm-section<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cluster - SaaS Grupo Cluster</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cluster - SaaS Grupo Cluster</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <!-- NAVBAR -->
@@ -27,7 +28,7 @@ scorm-section<!DOCTYPE html>
     <button class="nav-link" onclick="showSection('cursos')">Cursos</button>
     <button class="nav-link" onclick="showSection('lecciones')">Lecciones</button>
     <button class="nav-link" onclick="showSection('reportes')">Reportes</button>
-      <button class="nav-link" onclick="showSection('scorm')">SCORM</button>
+    <button class="nav-link" onclick="showSection('scorm')">SCORM</button>
   </div>
 </nav>
 
@@ -36,6 +37,7 @@ scorm-section<!DOCTYPE html>
 
 <!-- CONTENEDOR PRINCIPAL -->
 <div class="container">
+  <!-- DASHBOARD SECTION -->
   <section id="dashboard" class="section active">
     <div class="welcome-header">
       <h1>Bienvenido a Cluster</h1>
@@ -60,6 +62,7 @@ scorm-section<!DOCTYPE html>
     </div>
   </section>
 
+  <!-- CURSOS SECTION -->
   <section id="cursos" class="section">
     <div class="section-header">
       <h2>Mis Cursos</h2>
@@ -91,6 +94,7 @@ scorm-section<!DOCTYPE html>
     </table>
   </section>
 
+  <!-- LECCIONES SECTION -->
   <section id="lecciones" class="section">
     <div class="section-header">
       <h2>Mis Lecciones</h2>
@@ -109,25 +113,81 @@ scorm-section<!DOCTYPE html>
     </div>
   </section>
 
+  <!-- REPORTES SECTION -->
   <section id="reportes" class="section">
-    <div class="section-header">
-      <h2>Reportes y Analisis</h2>
+    <h2>Reportes de Capacitación</h2>
+
+    <!-- Filtros -->
+    <div class="report-filters">
+      <label>
+        Curso:
+        <select id="filtro-curso">
+          <option value="todos">Todos</option>
+          <option value="curso1">Curso SCORM 1</option>
+          <option value="curso2">Curso SCORM 2</option>
+        </select>
+      </label>
+      <label>
+        Estado:
+        <select id="filtro-estado">
+          <option value="todos">Todos</option>
+          <option value="completed">Completado</option>
+          <option value="incomplete">En progreso</option>
+          <option value="notattempted">No iniciado</option>
+        </select>
+      </label>
     </div>
-    <div class="reports-grid">
-      <div class="report-card">
-        <h3>Progreso General</h3>
-        <div class="report-metric">
-          <span class="metric-label">Completacion:</span>
-          <span class="metric-value">45%</span>
-        </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <span class="kpi-label">Tasa de finalización</span>
+        <span class="kpi-value" id="kpi-completion">0 %</span>
       </div>
-      <div class="report-card">
-        <h3>Participacion</h3>
-        <div class="report-metric">
-          <span class="metric-label">Activa:</span>
-          <span class="metric-value">12 participantes</span>
-        </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Promedio de calificación</span>
+        <span class="kpi-value" id="kpi-score">0</span>
       </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Tiempo promedio (min)</span>
+        <span class="kpi-value" id="kpi-time">0</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Alumnos activos</span>
+        <span class="kpi-value" id="kpi-users">0</span>
+      </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>% Completado por curso</h3>
+        <canvas id="chartCursos"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Horas por mes</h3>
+        <canvas id="chartHoras"></canvas>
+      </div>
+    </div>
+
+    <!-- Tabla detalle -->
+    <div class="table-card">
+      <h3>Detalle de alumnos</h3>
+      <table id="tabla-reportes">
+        <thead>
+          <tr>
+            <th>Alumno</th>
+            <th>Curso</th>
+            <th>Estado</th>
+            <th>Intentos</th>
+            <th>Calificación</th>
+            <th>Tiempo (min)</th>
+            <th>Último acceso</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
   </section>
 </div>
@@ -159,15 +219,13 @@ scorm-section<!DOCTYPE html>
   </div>
 </div>
 
-<script src="script.js"></script>
-    
 <!-- SCORM SECTION -->
 <div id="scorm-section" class="section" style="display: none;">
   <div class="section-header">
     <h2>Carga de Cursos SCORM</h2>
     <p>Carga y visualiza cursos en formato SCORM 1.2 y SCORM 2004</p>
   </div>
-  
+
   <div class="scorm-container">
     <div class="scorm-upload" id="scorm-upload-zone">
       <input type="file" id="scorm-file-input" accept=".zip,.html,.htm" style="display: none;" />
@@ -181,7 +239,7 @@ scorm-section<!DOCTYPE html>
         <p id="progress-text">Procesando...</p>
       </div>
     </div>
-    
+
     <div class="scorm-viewer" id="scorm-viewer" style="display: none;">
       <div class="viewer-header">
         <h3 id="scorm-title">Curso SCORM</h3>
@@ -192,13 +250,16 @@ scorm-section<!DOCTYPE html>
         <span id="scorm-progress-info">Progreso: 0%</span>
       </div>
     </div>
-    
+
     <div class="scorm-list">
       <h3>Cursos Cargados</h3>
       <div id="scorm-courses-list" class="courses-list"></div>
     </div>
   </div>
 </div>
+
+<script src="script.js"></script>
 <script src="scorm-manager.js"></script>
+<script src="reportes.js"></script>
 </body>
 </html>
