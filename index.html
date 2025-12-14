@@ -52,6 +52,7 @@
     <button class="nav-link" onclick="showSection('dashboard')">Dashboard</button>
     <button class="nav-link" onclick="showSection('cursos')">Cursos</button>
     <button class="nav-link" onclick="showSection('lecciones')">Lecciones</button>
+        <button class="nav-link" onclick="showSection('alumno')">📚 Mi Panel</button>
     <button class="nav-link" onclick="showSection('administrador')" style="color: #FF6B6B; font-weight: bold;">⚙️ Administrador</button>
     <button class="nav-link" onclick="showSection('reportes')">Reportes</button>
     <button class="nav-link" onclick="showSection('scorm')">SCORM</button>
@@ -292,6 +293,144 @@
 <script src="script.js"></script>
 <script src="scorm-manager.js"></script>
 <script src="reportes.js"></script>
+
+  <!-- VISTA DE ALUMNO SECTION -->
+<section id="alumno" class="section">
+  <h2 style="color: #667eea; margin-bottom: 30px;">📚 Mi Panel de Estudiante</h2>
+  
+  <!-- Avisos Importantes -->
+  <div style="margin-bottom: 30px;">
+    <h3 style="margin-bottom: 15px;">⚠️ Avisos Importantes</h3>
+    <div style="display: grid; gap: 12px;">
+      <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; border-radius: 4px;">
+        <strong style="color: #856404;">📢 Nueva clase disponible</strong>
+        <p style="margin: 8px 0 0 0; color: #856404; font-size: 0.9rem;">El módulo 3 de "Transformación Digital" está disponible desde hoy. Acceso inmediato.</p>
+      </div>
+      <div style="background: #d4edda; border-left: 4px solid #28a745; padding: 15px; border-radius: 4px;">
+        <strong style="color: #155724;">✅ Certificado completado</strong>
+        <p style="margin: 8px 0 0 0; color: #155724; font-size: 0.9rem;">¡Felicidades! Completaste el curso de "Liderazgo y Gestión". Descarga tu certificado.</p>
+      </div>
+      <div style="background: #f8d7da; border-left: 4px solid #dc3545; padding: 15px; border-radius: 4px;">
+        <strong style="color: #721c24;">📅 Próximo evento</strong>
+        <p style="margin: 8px 0 0 0; color: #721c24; font-size: 0.9rem;">Webinar en vivo: "Estrategias de Innovación" - Mañana a las 10:00 AM</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mis Cursos -->
+  <div style="margin-bottom: 30px;">
+    <h3 style="margin-bottom: 15px;">📖 Mis Cursos en Progreso</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+      <!-- Curso 1 -->
+      <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+          <div>
+            <h4 style="margin: 0 0 5px 0; color: #1a202c;">Transformación Digital</h4>
+            <p style="margin: 0; color: #667eea; font-size: 0.9rem; font-weight: 600;">Instructor: Grupo Clúster</p>
+          </div>
+          <span style="background: #667eea; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">75%</span>
+        </div>
+        <div style="background: #e0e0e0; height: 8px; border-radius: 4px; margin-bottom: 12px; overflow: hidden;">
+          <div style="background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; width: 75%; border-radius: 4px;"></div>
+        </div>
+        <p style="margin: 0 0 12px 0; color: #718096; font-size: 0.9rem;">⏱️ 15 de 20 horas completadas</p>
+        <button style="width: 100%; padding: 10px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Continuar Curso</button>
+      </div>
+      
+      <!-- Curso 2 -->
+      <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+          <div>
+            <h4 style="margin: 0 0 5px 0; color: #1a202c;">Liderazgo y Gestión</h4>
+            <p style="margin: 0; color: #667eea; font-size: 0.9rem; font-weight: 600;">Instructor: Grupo Clúster</p>
+          </div>
+          <span style="background: #10b981; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">100%</span>
+        </div>
+        <div style="background: #e0e0e0; height: 8px; border-radius: 4px; margin-bottom: 12px; overflow: hidden;">
+          <div style="background: #10b981; height: 100%; width: 100%; border-radius: 4px;"></div>
+        </div>
+        <p style="margin: 0 0 12px 0; color: #718096; font-size: 0.9rem;">✅ Completado el 12 de Diciembre</p>
+        <button style="width: 100%; padding: 10px; background: #10b981; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Revisar Certificado</button>
+      </div>
+      
+      <!-- Curso 3 -->
+      <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+          <div>
+            <h4 style="margin: 0 0 5px 0; color: #1a202c;">Excel Avanzado</h4>
+            <p style="margin: 0; color: #667eea; font-size: 0.9rem; font-weight: 600;">Instructor: Grupo Clúster</p>
+          </div>
+          <span style="background: #f59e0b; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">30%</span>
+        </div>
+        <div style="background: #e0e0e0; height: 8px; border-radius: 4px; margin-bottom: 12px; overflow: hidden;">
+          <div style="background: #f59e0b; height: 100%; width: 30%; border-radius: 4px;"></div>
+        </div>
+        <p style="margin: 0 0 12px 0; color: #718096; font-size: 0.9rem;">⏱️ 6 de 20 horas completadas</p>
+        <button style="width: 100%; padding: 10px; background: #f59e0b; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Continuar Curso</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Calendario de Eventos -->
+  <div style="margin-bottom: 30px;">
+    <h3 style="margin-bottom: 15px;">📅 Calendario de Actividades</h3>
+    <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <table style="width: 100%; text-align: left; border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 2px solid #e0e0e0;">
+            <th style="padding: 12px; color: #667eea; font-weight: 600;">Fecha</th>
+            <th style="padding: 12px; color: #667eea; font-weight: 600;">Evento</th>
+            <th style="padding: 12px; color: #667eea; font-weight: 600;">Curso</th>
+            <th style="padding: 12px; color: #667eea; font-weight: 600;">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #f0f0f0;">
+            <td style="padding: 12px;">15 Dic 2025</td>
+            <td style="padding: 12px;">📝 Quiz del Módulo 3</td>
+            <td style="padding: 12px;">Transformación Digital</td>
+            <td style="padding: 12px;"><span style="background: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;">Próximamente</span></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f0f0f0;">
+            <td style="padding: 12px;">20 Dic 2025</td>
+            <td style="padding: 12px;">🎥 Webinar: Innovación</td>
+            <td style="padding: 12px;">Todos los cursos</td>
+            <td style="padding: 12px;"><span style="background: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;">Registrado</span></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f0f0f0;">
+            <td style="padding: 12px;">22 Dic 2025</td>
+            <td style="padding: 12px;">📊 Proyecto Final</td>
+            <td style="padding: 12px;">Excel Avanzado</td>
+            <td style="padding: 12px;"><span style="background: #fecaca; color: #991b1b; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;">Entrega Requerida</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Recursos Útiles -->
+  <div>
+    <h3 style="margin-bottom: 15px;">🔗 Recursos Útiles</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+      <a href="#" style="background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none; color: inherit; transition: transform 0.3s;">
+        <div style="font-size: 24px; margin-bottom: 10px;">📚</div>
+        <strong style="color: #1a202c;">Biblioteca de Contenidos</strong>
+        <p style="margin: 8px 0 0 0; color: #718096; font-size: 0.9rem;">Acceso a todos los materiales</p>
+      </a>
+      <a href="#" style="background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none; color: inherit; transition: transform 0.3s;">
+        <div style="font-size: 24px; margin-bottom: 10px;">❓</div>
+        <strong style="color: #1a202c;">Centro de Ayuda</strong>
+        <p style="margin: 8px 0 0 0; color: #718096; font-size: 0.9rem;">Preguntas frecuentes y soporte</p>
+      </a>
+      <a href="#" style="background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none; color: inherit; transition: transform 0.3s;">
+        <div style="font-size: 24px; margin-bottom: 10px;">📞</div>
+        <strong style="color: #1a202c;">Contactar Soporte</strong>
+        <p style="margin: 8px 0 0 0; color: #718096; font-size: 0.9rem;">Asistencia en tiempo real</p>
+      </a>
+    </div>
+  </div>
+</section>
+
 
   <!-- ADMINISTRADOR SECTION -->
 <section id="administrador" class="section">
