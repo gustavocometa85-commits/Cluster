@@ -155,3 +155,140 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 #tabla-reportes tbody tr:hover {
   background: #fafafa;
 }
+
+/* ===== LANDING PAGE STYLES ===== */
+.landing-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.landing-section.active {
+  display: flex;
+}
+
+.landing-container {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  animation: fadeInScale 0.6s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.landing-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+  filter: drop-shadow(0 4px 12px rgba(107, 159, 212, 0.2));
+}
+
+.landing-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #1a202c;
+  margin: 0 0 10px 0;
+  letter-spacing: -1px;
+}
+
+.landing-subtitle {
+  font-size: 20px;
+  color: #667eea;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.landing-description {
+  font-size: 16px;
+  color: #718096;
+  margin: 0 0 40px 0;
+  line-height: 1.6;
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-landing {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.btn-landing.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-landing.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-landing.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn-landing.secondary:hover {
+  background: #f7f9fc;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .landing-section {
+    padding: 20px;
+  }
+  
+  .landing-container {
+    padding: 20px;
+  }
+  
+  .landing-title {
+    font-size: 36px;
+  }
+  
+  .landing-subtitle {
+    font-size: 18px;
+  }
+  
+  .landing-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .landing-buttons {
+    flex-direction: column;
+  }
+  
+  .btn-landing {
+    width: 100%;
+  }
+}
