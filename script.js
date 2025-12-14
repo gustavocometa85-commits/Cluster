@@ -121,6 +121,8 @@ function showSection(sectionName) {
   sections.forEach(section => {
     section.classList.remove('active');
     section.style.display = 'none';
+      const landingSection = document.getElementById('landing');
+  if (landingSection) landingSection.classList.remove('active');
   });
   const targetSection = document.getElementById(sectionName);
   if (targetSection) {
@@ -135,4 +137,12 @@ function showSection(sectionName) {
       link.style.borderBottomColor = 'transparent';
     }
   });
+}
+
+// Close landing and show section
+function closeLanding() {
+  const landingSection = document.getElementById('landing');
+  if (landingSection) {
+    landingSection.classList.remove('active');
+  }
 }
