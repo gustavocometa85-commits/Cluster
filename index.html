@@ -8,6 +8,31 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+
+  <!-- LANDING PAGE -->
+<section id="landing" class="landing-section active">
+  <div class="landing-container">
+    <!-- Logo -->
+    <svg class="landing-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="25" r="15" fill="#6B9FD4"/>
+      <circle cx="75" cy="25" r="15" fill="#6B9FD4"/>
+      <circle cx="50" cy="50" r="15" fill="#6B9FD4"/>
+      <circle cx="25" cy="75" r="15" fill="#6B9FD4"/>
+      <circle cx="75" cy="75" r="15" fill="#6B9FD4"/>
+    </svg>
+    
+    <!-- Contenido -->
+    <h1 class="landing-title">Cluster</h1>
+    <p class="landing-subtitle">Plataforma de capacitación profesional de Grupo Cluster</p>
+    <p class="landing-description">Acceso a cursos, reportes y contenido de formación diseñado para tu desarrollo</p>
+    
+    <!-- Botones -->
+    <div class="landing-buttons">
+      <button class="btn-landing primary" onclick="showSection('dashboard'); closeLanding()">Entrar al Demo</button>
+      <button class="btn-landing secondary" onclick="showSection('administrador'); closeLanding()">Panel Administrador</button>
+    </div>
+  </div>
+</section>
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-brand">
